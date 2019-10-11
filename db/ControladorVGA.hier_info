@@ -1,0 +1,276 @@
+|controladorVGA_tb
+
+
+|controladorVGA_tb|controladorVGA:DUT
+v_enable <= v_enable.DB_MAX_OUTPUT_PORT_TYPE
+clk => clk.IN1
+reset => reset.IN1
+horiz_count[0] <= horiz_count[0].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[1] <= horiz_count[1].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[2] <= horiz_count[2].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[3] <= horiz_count[3].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[4] <= horiz_count[4].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[5] <= horiz_count[5].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[6] <= horiz_count[6].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[7] <= horiz_count[7].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[8] <= horiz_count[8].DB_MAX_OUTPUT_PORT_TYPE
+horiz_count[9] <= horiz_count[9].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[0] <= vert_count[0].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[1] <= vert_count[1].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[2] <= vert_count[2].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[3] <= vert_count[3].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[4] <= vert_count[4].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[5] <= vert_count[5].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[6] <= vert_count[6].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[7] <= vert_count[7].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[8] <= vert_count[8].DB_MAX_OUTPUT_PORT_TYPE
+vert_count[9] <= vert_count[9].DB_MAX_OUTPUT_PORT_TYPE
+R[0] <= R[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+G[0] <= G[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+G[1] <= G[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+G[2] <= G[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= B[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+horiz_sync <= comparatorH:comp_h.port1
+vert_sync <= comparatorV:comp_v.port1
+clkVGA <= clkVGA.DB_MAX_OUTPUT_PORT_TYPE
+display[0] <= mux_color:muxColor.port4
+display[1] <= mux_color:muxColor.port4
+display[2] <= mux_color:muxColor.port4
+display[3] <= mux_color:muxColor.port4
+display[4] <= mux_color:muxColor.port4
+display[5] <= mux_color:muxColor.port4
+display[6] <= mux_color:muxColor.port4
+display[7] <= mux_color:muxColor.port4
+display[8] <= mux_color:muxColor.port4
+
+
+|controladorVGA_tb|controladorVGA:DUT|clockDivider:clkDIV
+clk => ~NO_FANOUT~
+reset => Decoder0.IN0
+vgaClk <= vgaClk.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controladorVGA_tb|controladorVGA:DUT|counterH:cont_h
+clk => Venable~reg0.CLK
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+clk => count[4]~reg0.CLK
+clk => count[5]~reg0.CLK
+clk => count[6]~reg0.CLK
+clk => count[7]~reg0.CLK
+clk => count[8]~reg0.CLK
+clk => count[9]~reg0.CLK
+clk => count[10]~reg0.CLK
+clk => count[11]~reg0.CLK
+clk => count[12]~reg0.CLK
+clk => count[13]~reg0.CLK
+clk => count[14]~reg0.CLK
+clk => count[15]~reg0.CLK
+Venable <= Venable~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[4] <= count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[5] <= count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[6] <= count[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[7] <= count[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[8] <= count[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[9] <= count[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[10] <= count[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[11] <= count[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[12] <= count[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[13] <= count[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[14] <= count[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[15] <= count[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controladorVGA_tb|controladorVGA:DUT|counterV:cont_v
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+clk => count[4]~reg0.CLK
+clk => count[5]~reg0.CLK
+clk => count[6]~reg0.CLK
+clk => count[7]~reg0.CLK
+clk => count[8]~reg0.CLK
+clk => count[9]~reg0.CLK
+clk => count[10]~reg0.CLK
+clk => count[11]~reg0.CLK
+clk => count[12]~reg0.CLK
+clk => count[13]~reg0.CLK
+clk => count[14]~reg0.CLK
+clk => count[15]~reg0.CLK
+Venable => count[0]~reg0.ENA
+Venable => count[1]~reg0.ENA
+Venable => count[2]~reg0.ENA
+Venable => count[3]~reg0.ENA
+Venable => count[4]~reg0.ENA
+Venable => count[5]~reg0.ENA
+Venable => count[6]~reg0.ENA
+Venable => count[7]~reg0.ENA
+Venable => count[8]~reg0.ENA
+Venable => count[9]~reg0.ENA
+Venable => count[10]~reg0.ENA
+Venable => count[11]~reg0.ENA
+Venable => count[12]~reg0.ENA
+Venable => count[13]~reg0.ENA
+Venable => count[14]~reg0.ENA
+Venable => count[15]~reg0.ENA
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[4] <= count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[5] <= count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[6] <= count[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[7] <= count[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[8] <= count[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[9] <= count[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[10] <= count[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[11] <= count[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[12] <= count[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[13] <= count[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[14] <= count[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[15] <= count[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controladorVGA_tb|controladorVGA:DUT|comparatorH:comp_h
+countH[0] => LessThan0.IN20
+countH[0] => LessThan1.IN20
+countH[1] => LessThan0.IN19
+countH[1] => LessThan1.IN19
+countH[2] => LessThan0.IN18
+countH[2] => LessThan1.IN18
+countH[3] => LessThan0.IN17
+countH[3] => LessThan1.IN17
+countH[4] => LessThan0.IN16
+countH[4] => LessThan1.IN16
+countH[5] => LessThan0.IN15
+countH[5] => LessThan1.IN15
+countH[6] => LessThan0.IN14
+countH[6] => LessThan1.IN14
+countH[7] => LessThan0.IN13
+countH[7] => LessThan1.IN13
+countH[8] => LessThan0.IN12
+countH[8] => LessThan1.IN12
+countH[9] => LessThan0.IN11
+countH[9] => LessThan1.IN11
+selector <= always0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controladorVGA_tb|controladorVGA:DUT|comparatorV:comp_v
+countV[0] => LessThan0.IN20
+countV[0] => LessThan1.IN20
+countV[1] => LessThan0.IN19
+countV[1] => LessThan1.IN19
+countV[2] => LessThan0.IN18
+countV[2] => LessThan1.IN18
+countV[3] => LessThan0.IN17
+countV[3] => LessThan1.IN17
+countV[4] => LessThan0.IN16
+countV[4] => LessThan1.IN16
+countV[5] => LessThan0.IN15
+countV[5] => LessThan1.IN15
+countV[6] => LessThan0.IN14
+countV[6] => LessThan1.IN14
+countV[7] => LessThan0.IN13
+countV[7] => LessThan1.IN13
+countV[8] => LessThan0.IN12
+countV[8] => LessThan1.IN12
+countV[9] => LessThan0.IN11
+countV[9] => LessThan1.IN11
+selector <= always0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controladorVGA_tb|controladorVGA:DUT|comparator_display:comp_display
+countH[0] => LessThan0.IN20
+countH[0] => LessThan2.IN20
+countH[1] => LessThan0.IN19
+countH[1] => LessThan2.IN19
+countH[2] => LessThan0.IN18
+countH[2] => LessThan2.IN18
+countH[3] => LessThan0.IN17
+countH[3] => LessThan2.IN17
+countH[4] => LessThan0.IN16
+countH[4] => LessThan2.IN16
+countH[5] => LessThan0.IN15
+countH[5] => LessThan2.IN15
+countH[6] => LessThan0.IN14
+countH[6] => LessThan2.IN14
+countH[7] => LessThan0.IN13
+countH[7] => LessThan2.IN13
+countH[8] => LessThan0.IN12
+countH[8] => LessThan2.IN12
+countH[9] => LessThan0.IN11
+countH[9] => LessThan2.IN11
+countV[0] => LessThan1.IN20
+countV[0] => LessThan3.IN20
+countV[1] => LessThan1.IN19
+countV[1] => LessThan3.IN19
+countV[2] => LessThan1.IN18
+countV[2] => LessThan3.IN18
+countV[3] => LessThan1.IN17
+countV[3] => LessThan3.IN17
+countV[4] => LessThan1.IN16
+countV[4] => LessThan3.IN16
+countV[5] => LessThan1.IN15
+countV[5] => LessThan3.IN15
+countV[6] => LessThan1.IN14
+countV[6] => LessThan3.IN14
+countV[7] => LessThan1.IN13
+countV[7] => LessThan3.IN13
+countV[8] => LessThan1.IN12
+countV[8] => LessThan3.IN12
+countV[9] => LessThan1.IN11
+countV[9] => LessThan3.IN11
+selector <= always0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controladorVGA_tb|controladorVGA:DUT|mux_color:muxColor
+clk => display[0]~reg0.CLK
+clk => display[1]~reg0.CLK
+clk => display[2]~reg0.CLK
+clk => display[3]~reg0.CLK
+clk => display[4]~reg0.CLK
+clk => display[5]~reg0.CLK
+clk => display[6]~reg0.CLK
+clk => display[7]~reg0.CLK
+clk => display[8]~reg0.CLK
+blank[0] => display.DATAA
+blank[1] => display.DATAA
+blank[2] => display.DATAA
+blank[3] => display.DATAA
+blank[4] => display.DATAA
+blank[5] => display.DATAA
+blank[6] => display.DATAA
+blank[7] => display.DATAA
+blank[8] => display.DATAA
+color[0] => display.DATAB
+color[1] => display.DATAB
+color[2] => display.DATAB
+color[3] => display.DATAB
+color[4] => display.DATAB
+color[5] => display.DATAB
+color[6] => display.DATAB
+color[7] => display.DATAB
+color[8] => display.DATAB
+selector => Decoder0.IN0
+display[0] <= display[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= display[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= display[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= display[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[7] <= display[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display[8] <= display[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

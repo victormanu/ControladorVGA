@@ -1,0 +1,10 @@
+module comparator_display #(parameter N, parameter size) (count, out);
+	input logic [N-1:0] count;
+	output logic out;
+	
+	
+	initial begin 
+	case(count)
+		
+	endcase
+endmodule 	
