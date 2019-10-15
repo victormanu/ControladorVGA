@@ -6,9 +6,9 @@ module clockDivider_tb ();
 	
 	
 	initial begin
-		reset = 1;
-		#15;
 		reset = 0;
+		#25;
+		reset = 1;
 	end
 	
 	always begin

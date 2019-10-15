@@ -1,0 +1,44 @@
+module controlVGA #(parameter N)(v_enable, clk, reset, horiz_count, vert_count, R, G, B, horiz_sync, vert_sync, vga_blank, vga_sync, clkVGA);
+	input logic clk, reset;
+	output logic [7:0] R, G, B;
+	output logic horiz_sync, vert_sync;
+	output logic clkVGA;
+	output logic [N:0] horiz_count, vert_count;
+	output logic vga_blank, vga_sync;
+	output logic v_enable;
+	
+	// Variables locales
+	logic selector;
+	logic [23:0] lineas, color, display;
+	
+	assign blank = 0;
+	
+	assign color [7:0] = 8'h00000000;
+	assign color [15:8] = 8'h00000000;
+	assign color [23:16] = 8'hFFFFFFFF;
+	
+	assign lineas [7:0] = 8'h00000000;
+	assign lineas [15:8] = 8'h00000000;
+	assign lineas [23:16] = 8'h00000000;
+	
+	// Divisor de clk
+	clockDivider clkDIV(clk, reset, clkVGA);
+	 
+	// Contadores
+	counterH #(N) cont_h (clkVGA, v_enable, horiz_count);
+	counterV #(N) cont_v (clkVGA, v_enable, vert_count);
+	
+	// Comparadores
+	comparatorH #(N) comp_h (horiz_count, horiz_sync);
+	comparatorV #(N) comp_v (vert_count, vert_sync);
+	comparator_display #(N)  comp_display (horiz_count, vert_count, vga_blank, vga_sync, selector);
+	
+	// Mux
+	mux_color muxColor(clkVGA, lineas, color, selector, display);
+	
+
+	assign	R = display [7:0];
+	assign	G = display [15:8];
+	assign	B = display [23:16];
+
+endmodule 

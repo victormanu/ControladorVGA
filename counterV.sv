@@ -1,6 +1,6 @@
 module counterV #(parameter N)(clk, Venable, count);
 	input logic clk, Venable;
-	output logic [15:0] count;	
+	output logic [N:0] count;	
 
 	always @(posedge clk) begin
 		if (Venable == 1'b1)begin

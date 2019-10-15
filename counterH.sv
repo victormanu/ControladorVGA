@@ -1,6 +1,6 @@
 module counterH #(parameter N)(clk, Venable, count);
 	input logic clk;
-	output logic [15:0] count;
+	output logic [N:0] count;
 	output logic Venable;
 
 always @(posedge clk) begin

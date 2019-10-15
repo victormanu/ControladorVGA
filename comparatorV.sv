@@ -7,5 +7,5 @@ module comparatorV #(parameter N) (countV, selector);
 				selector = 1'b1;
 		end
 		else selector = 1'b0;
-	end
+	end 
 endmodule 	
