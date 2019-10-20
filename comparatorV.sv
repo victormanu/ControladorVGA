@@ -1,11 +1,11 @@
-module comparatorV #(parameter N) (countV, selector);
+module comparatorV #(parameter N) (countV, sync);
 	input logic [N:0] countV;
-	output logic selector;
+	output logic sync;
 	
 	always @(countV)  begin
-		if ((countV < 2) || (countV > 524)) begin
-				selector = 1'b1;
+		if (countV < 2) begin
+				sync = 1'b1;
 		end
-		else selector = 1'b0;
+		else sync = 1'b0;
 	end 
 endmodule 	

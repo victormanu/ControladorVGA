@@ -1,6 +1,6 @@
 module counter_tb #(parameter N= 15)();
 	logic clk, venable;
-	logic [N-1:0] count;
+	logic [N:0] count;
 	
 	counterH #(N) DUT (clk, venable, count);
 	

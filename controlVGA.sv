@@ -8,18 +8,8 @@ module controlVGA #(parameter N)(v_enable, clk, reset, horiz_count, vert_count, 
 	output logic v_enable;
 	
 	// Variables locales
-	logic selector;
+	logic [1:0] selector;
 	logic [23:0] lineas, color, display;
-	
-	assign blank = 0;
-	
-	assign color [7:0] = 8'h00000000;
-	assign color [15:8] = 8'h00000000;
-	assign color [23:16] = 8'hFFFFFFFF;
-	
-	assign lineas [7:0] = 8'h00000000;
-	assign lineas [15:8] = 8'h00000000;
-	assign lineas [23:16] = 8'h00000000;
 	
 	// Divisor de clk
 	clockDivider clkDIV(clk, reset, clkVGA);
@@ -34,7 +24,7 @@ module controlVGA #(parameter N)(v_enable, clk, reset, horiz_count, vert_count, 
 	comparator_display #(N)  comp_display (horiz_count, vert_count, vga_blank, vga_sync, selector);
 	
 	// Mux
-	mux_color muxColor(clkVGA, lineas, color, selector, display);
+	mux_color muxColor(clkVGA, selector, display);
 	
 
 	assign	R = display [7:0];

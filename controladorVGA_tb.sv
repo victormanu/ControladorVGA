@@ -1,4 +1,3 @@
-`timescale 1ns/1ps
 module controladorVGA_tb ();
 	logic clk, reset;
 	logic [7:0] R, G, B;
@@ -7,14 +6,14 @@ module controladorVGA_tb ();
 	logic v_enable;
 	logic [15:0] horiz_count, vert_count;
 	
-	controlVGA #(15) DUT (v_enable, clk, reset, horiz_count, vert_count, R, G, B, horiz_sync, vert_sync, vga_blank, vga_sync, clkVGA);
+	controlVGA #(15) DUT (v_enable, clk, reset, horiz_count, vert_count, R, G, B, 
+									horiz_sync, vert_sync, vga_blank, vga_sync, clkVGA);
 	
 	
 	initial begin
-		reset = 1;
-		#5;
 		reset = 0;
-		#5;
+		#15; 
+		reset = 1;
 	end
 	 
 	always begin
@@ -23,4 +22,4 @@ module controladorVGA_tb ();
 		clk = ~clk; 
 		#10;
 	end
-endmodule 
+endmodule  
